@@ -1,0 +1,294 @@
+.login-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-body);
+    padding: 1rem;
+    font-family: var(--font-family);
+}
+
+.login-frame {
+    position: relative;
+    width: 100%;
+    max-width: 720px;
+    border-radius: 2rem;
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+}
+.login-frame::before,
+.login-frame::after {
+    content: '';
+    position: absolute;
+    inset: 0.35rem;
+    border-radius: 1.8rem;
+    border: 1px solid rgba(226,232,240,0.8);
+    pointer-events: none;
+}
+.login-frame::after {
+    inset: 0.85rem;
+    border-radius: 1.6rem;
+}
+
+.login-header-group {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.login-logo-box {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+    color: var(--text-primary);
+    margin: 0 auto 1.5rem auto;
+    box-shadow: 0 10px 16px rgba(15,23,42,0.08);
+}
+
+.login-main-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.025em;
+}
+
+.login-subtitle {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+.login-card {
+    background: linear-gradient(180deg, #ffffff 0%, #f7f9ff 100%);
+    padding: 2.5rem;
+    border-radius: 1.25rem;
+    box-shadow: 0 16px 28px rgba(15,23,42,0.12);
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+}
+
+/* Tabs Estilo Minimalista */
+.login-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    padding: 0.75rem 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.tab-btn.active {
+    color: var(--primary-600);
+    font-weight: 600;
+}
+
+.tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-600);
+    border-radius: 2px 2px 0 0;
+}
+
+/* Estilos de Inputs */
+.input-field {
+    position: relative;
+    margin-bottom: 1.25rem;
+}
+
+.input-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.1rem;
+    color: var(--text-tertiary);
+    z-index: 10;
+}
+
+.styled-input {
+    width: 100%;
+    padding: 0.9rem 2.75rem 0.9rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    background: linear-gradient(180deg, #ffffff 0%, #f7f9ff 100%);
+    transition: all 0.2s ease;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.6), 0 8px 18px rgba(15,23,42,0.05);
+}
+
+.styled-input:focus {
+    border-color: var(--primary-400);
+    box-shadow: 0 0 0 4px var(--primary-50), inset 0 1px 0 rgba(255,255,255,0.6);
+    outline: none;
+}
+
+.styled-input::placeholder {
+    color: var(--text-tertiary);
+}
+
+.password-eye {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--text-tertiary);
+    font-size: 1rem;
+    opacity: 0.6;
+    transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.password-eye:hover {
+    opacity: 1;
+    color: var(--text-secondary);
+}
+
+/* Opciones (Checkbox + Olvidaste contraseña) */
+.login-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    font-size: 0.875rem;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    color: var(--text-secondary);
+}
+
+.forgot-password-link {
+    color: var(--primary-600);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.forgot-password-link:hover {
+    text-decoration: underline;
+}
+
+/* Botón Principal */
+.login-submit-btn {
+    width: 100%;
+    background: linear-gradient(180deg, var(--primary-600) 0%, var(--primary-700) 100%);
+    color: #fff;
+    padding: 0.95rem;
+    border: 1px solid var(--primary-700);
+    border-radius: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.25), 0 12px 20px rgba(37,99,235,0.25);
+}
+
+.login-submit-btn:hover:not(:disabled) {
+    background: linear-gradient(180deg, var(--primary-700) 0%, var(--primary-800) 100%);
+    transform: translateY(-1px);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.25), 0 16px 26px rgba(29,78,216,0.28);
+}
+
+.login-submit-btn:disabled {
+    background: linear-gradient(180deg, var(--primary-300) 0%, var(--primary-400) 100%);
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Footer Text */
+.login-footer-text {
+    margin-top: 2rem;
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    text-align: center;
+}
+
+/* Chips de Roles */
+.role-selection {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.role-chip {
+    flex: 1;
+    position: relative;
+    cursor: pointer;
+}
+
+.role-chip input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.role-chip span {
+    display: block;
+    text-align: center;
+    padding: 0.625rem;
+    background-color: var(--gray-50);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
+    font-weight: 500;
+}
+
+.role-chip input:checked~span {
+    background-color: var(--primary-50);
+    border-color: var(--primary-500);
+    color: var(--primary-700);
+}
+
+/* Mensaje de Error */
+.login-error {
+    background-color: var(--bg-body);
+    color: var(--error);
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--border-color);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .login-card {
+        padding: 1.5rem;
+        box-shadow: var(--shadow-lg);
+    }
+
+    .login-main-title {
+        font-size: 1.5rem;
+    }
+}
