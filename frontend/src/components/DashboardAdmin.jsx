@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { API_URL } from '../config'
 import '../index.css'
 
 import UsersManager from './UsersManager'
@@ -56,7 +57,7 @@ export default function DashboardAdmin({ user, onLogout }) {
             return
         }
         try {
-            const res = await fetch(`/api/orders/${encodeURIComponent(id)}`, {
+            const res = await fetch(`${API_URL}/api/orders/${encodeURIComponent(id)}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -77,7 +78,7 @@ export default function DashboardAdmin({ user, onLogout }) {
             return
         }
         try {
-            const res = await fetch(`/api/orders/${encodeURIComponent(id)}`, {
+            const res = await fetch(`${API_URL}/api/orders/${encodeURIComponent(id)}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -124,7 +125,7 @@ export default function DashboardAdmin({ user, onLogout }) {
                 return
             }
 
-            const res = await fetch('/api/orders/export', {
+            const res = await fetch(`${API_URL}/api/orders/export`, {
                 headers: token ? { 'Authorization': `Bearer ${token}` } : undefined
             })
             if (!res.ok) return

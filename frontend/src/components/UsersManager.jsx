@@ -35,7 +35,7 @@ export default function UsersManager() {
         if (!confirm('¿Estás seguro de eliminar este usuario?')) return
 
         try {
-            const res = await fetch(`/api/users/${id}`, {
+            const res = await fetch(`${API_URL}/api/users/${id}`, {
                 method: 'DELETE',
                 headers: token ? { 'Authorization': `Bearer ${token}` } : undefined
             })
@@ -52,7 +52,7 @@ export default function UsersManager() {
         setError('')
 
         try {
-            const res = await fetch('/api/auth/register', {
+            const res = await fetch(`${API_URL}/api/auth/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

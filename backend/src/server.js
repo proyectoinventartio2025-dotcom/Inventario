@@ -573,18 +573,24 @@ app.use((req, res) => {
 
 const PORT = process.env.PORT || 5000;
 
-const start = async () => {
-    await connectDB();
+// Conexión a DB para Vercel (se ejecuta en cada invocación si no está caliente, pero Mongoose maneja el pool)
+connectDB();
 
-    const shouldSeed = process.env.DEMO_SEED === 'true' || (process.env.NODE_ENV !== 'production');
-    if (shouldSeed) {
-        await seedDemoData();
-    }
-    await ensureBootstrapAdmin();
+// Solo iniciar el servidor si se ejecuta directamente (Local / VPS)
+if (require.main === module) {
+    const startServer = async () => {
+        // En local, esperamos explícitamente y sembramos datos si es necesario
+        const shouldSeed = process.env.DEMO_SEED === 'true' || (process.env.NODE_ENV !== 'production');
+        if (shouldSeed) {
+            await seedDemoData();
+        }
+        await ensureBootstrapAdmin();
 
-    app.listen(PORT, () => {
-        console.log(`Servidor API escuchando en http://localhost:${PORT}/api`);
-    });
-};
+        app.listen(PORT, () => {
+            console.log(`Servidor API escuchando en http://localhost:${PORT}`);
+        });
+    };
+    startServer();
+}
 
-start();
+module.exports = app;

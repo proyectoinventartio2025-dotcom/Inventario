@@ -81,7 +81,7 @@ export default function DashboardCarpintero({ user, onLogout }) {
             if (searchTerm) params.set('q', searchTerm)
             params.set('page', String(page))
             params.set('limit', String(limit))
-            const res = await fetch(`/api/orders?${params.toString()}`, {
+            const res = await fetch(`${API_URL}/api/orders?${params.toString()}`, {
                 headers: token ? { 'Authorization': `Bearer ${token}` } : undefined
             })
             const data = await res.json()

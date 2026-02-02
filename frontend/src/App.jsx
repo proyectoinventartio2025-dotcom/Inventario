@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { API_URL } from './config'
 import Login from './components/Login'
 import DashboardAdmin from './components/DashboardAdmin'
 import DashboardOperador from './components/DashboardOperador'
@@ -13,7 +14,7 @@ function App() {
         const token = localStorage.getItem('token')
         if (token) {
             // Verificar el token con el backend
-            fetch('/api/auth/me', {
+            fetch(`${API_URL}/api/auth/me`, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }

@@ -35,7 +35,7 @@ export default function DashboardOperador({ user, onLogout }) {
         try {
             const params = new URLSearchParams()
             if (searchTerm) params.set('q', searchTerm)
-            const res = await fetch(`/api/orders?${params.toString()}`, {
+            const res = await fetch(`${API_URL}/api/orders?${params.toString()}`, {
                 headers: token ? { 'Authorization': `Bearer ${token}` } : undefined
             })
             const data = await res.json()
@@ -76,7 +76,7 @@ export default function DashboardOperador({ user, onLogout }) {
             if (isDemo) return
             try {
                 setDeliveryCheck({ exists: false, checking: true })
-                const res = await fetch(`/api/orders/check/${encodeURIComponent(formData.delivery)}`, {
+                const res = await fetch(`${API_URL}/api/orders/check/${encodeURIComponent(formData.delivery)}`, {
                     headers: token ? { 'Authorization': `Bearer ${token}` } : undefined
                 })
                 const data = await res.json()
@@ -173,7 +173,7 @@ export default function DashboardOperador({ user, onLogout }) {
             return
         }
         try {
-            const res = await fetch('/api/orders', {
+            const res = await fetch(`${API_URL}/api/orders`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -221,7 +221,7 @@ export default function DashboardOperador({ user, onLogout }) {
             return
         }
         try {
-            const res = await fetch(`/api/orders/${encodedId}`, {
+            const res = await fetch(`${API_URL}/api/orders/${encodedId}`, {
                 method: 'DELETE',
                 headers: token ? { 'Authorization': `Bearer ${token}` } : undefined
             })
