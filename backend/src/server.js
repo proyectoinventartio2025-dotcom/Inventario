@@ -586,7 +586,7 @@ if (require.main === module) {
         }
         await ensureBootstrapAdmin();
 
-        app.listen(PORT, () => {
+        app.listen(PORT, '0.0.0.0', () => {
             console.log(`Servidor API escuchando en http://localhost:${PORT}`);
         });
     };

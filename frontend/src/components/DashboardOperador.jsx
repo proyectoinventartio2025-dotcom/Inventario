@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import '../index.css'
+import { API_URL } from '../config'
 
 export default function DashboardOperador({ user, onLogout }) {
     const [view, setView] = useState('create')
@@ -199,7 +200,7 @@ export default function DashboardOperador({ user, onLogout }) {
             return
         }
         try {
-            const res = await fetch(`/api/orders/${encodedId}`, {
+            const res = await fetch(`${API_URL}/api/orders/${encodedId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

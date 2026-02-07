@@ -39,7 +39,7 @@ export default function DashboardAdmin({ user, onLogout }) {
         try {
             const params = new URLSearchParams()
             if (searchTerm) params.set('q', searchTerm)
-            const res = await fetch(`/api/orders?${params.toString()}`, {
+            const res = await fetch(`${API_URL}/api/orders?${params.toString()}`, {
                 headers: token ? { 'Authorization': `Bearer ${token}` } : undefined
             })
             const data = await res.json()

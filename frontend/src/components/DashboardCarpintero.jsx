@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import '../index.css'
+import { API_URL } from '../config'
 
 const getDeliveryClass = (status) => {
     switch (status) {
@@ -101,7 +102,7 @@ export default function DashboardCarpintero({ user, onLogout }) {
         }
         try {
             const isObjectId = /^[0-9a-fA-F]{24}$/.test(String(id))
-            const url = isObjectId ? `/api/orders/record/${id}` : `/api/orders/${encodeURIComponent(id)}`
+            const url = isObjectId ? `${API_URL}/api/orders/record/${id}` : `${API_URL}/api/orders/${encodeURIComponent(id)}`
             const res = await fetch(url, {
                 method: 'PUT',
                 headers: {

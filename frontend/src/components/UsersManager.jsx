@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { API_URL } from '../config'
 import '../index.css'
 
 export default function UsersManager() {
@@ -19,7 +20,7 @@ export default function UsersManager() {
 
     const fetchUsers = async () => {
         try {
-            const res = await fetch('/api/users', {
+            const res = await fetch(`${API_URL}/api/users`, {
                 headers: token ? { 'Authorization': `Bearer ${token}` } : undefined
             })
             const data = await res.json()
