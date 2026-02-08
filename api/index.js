@@ -1,7 +1,6 @@
-export default async function handler(req, res) {
-  if (req.method !== 'GET') {
-    res.status(405).json({ success: false })
-    return
-  }
-  res.status(200).json({ success: true })
-}
+// Vercel Serverless Function entry point for Express
+// Importa el servidor Express existente (CJS) y lo expone como ESM para Vercel
+
+import app from '../backend/src/server.js';
+
+export default app;

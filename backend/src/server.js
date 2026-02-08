@@ -574,7 +574,10 @@ app.use((req, res) => {
 const PORT = process.env.PORT || 5000;
 
 // Conexión a DB para Vercel (se ejecuta en cada invocación si no está caliente, pero Mongoose maneja el pool)
-connectDB();
+connectDB().then(() => {
+    // Intentar crear admin si existen las variables
+    ensureBootstrapAdmin().catch(err => console.error('Error bootstrap admin:', err));
+});
 
 // Solo iniciar el servidor si se ejecuta directamente (Local / VPS)
 if (require.main === module) {
@@ -584,8 +587,8 @@ if (require.main === module) {
         if (shouldSeed) {
             await seedDemoData();
         }
-        await ensureBootstrapAdmin();
-
+        // ensureBootstrapAdmin ya se llamó arriba, pero no hace daño repetirlo si ya existe
+        
         app.listen(PORT, '0.0.0.0', () => {
             console.log(`Servidor API escuchando en http://localhost:${PORT}`);
         });
